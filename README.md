@@ -1,8 +1,8 @@
 # FractionalDerivatives
-Fractional Derivatives package for Mathematica
+Fractional Derivative package for Mathematica
 
 # Math Background
-Fractional derivatives generalize the idea of the derivative to real numbers. This means we can take the 1/2 derivative, 2.4th, etc.
+Fractional calculus transforms the derivative from a discrete operation into a continuous one, allowing us to take the `q`th derivative for any real number q.
 
 # Code
 This main function, `FracD`, aims to be completely interchangable with `D`.
@@ -14,3 +14,5 @@ Right now, the following forms are (mostly) compatible:
 # TODO
 - Support all special derivatives (inverse trig, log, etc.)
 - Be fully compatible with D
+- Type checks, errors, etc.
+- Integration/Anti-derivatives

@@ -13,7 +13,7 @@
 
 
 (* ::Input::Initialization:: *)
-FracD::usage="Takes the qth Fractional Derivative";
+FracD::usage="FracD[f, x] gives the partial derivative \[PartialD]f/\[PartialD]x.\nFracD[f, {x, q}] gives the multiple derivative \!\(\*SuperscriptBox[\(\[PartialD]\), \(q\)]\)f/\[PartialD]\!\(\*SuperscriptBox[\(x\), \(q\)]\)";
 
 (* Defaults for compatibility with D *)
 FracD[f_, x_] := FracD[f, {x, 1}]
