@@ -13,9 +13,15 @@
 
 
 (* ::Input::Initialization:: *)
-FracD::usage="Takes the \!\(\*SuperscriptBox[\(a\), \(th\)]\)Fractional Derivative";
+FracD::usage="Takes the qth Fractional Derivative";
 
-FracD[f_+g_,a] := FracD[f, a] + FracD[g, a]
-FracD[c_*f_, a_] := c*FracD[f,a]/;FreeQ[c,x]
-FracD[c_, a_] := c*(Gamma[1]/Gamma[-a + 1])*x^(-a)/;FreeQ[c, x]
-FracD[x^n_., a_] := (Gamma[n + 1]/Gamma[n -a + 1])*x^(n-a)
+(* Defaults for compatibility with D *)
+FracD[f_, x_] := FracD[f, {x, 1}]
+
+(* For Linearity *)
+FracD[f_+g_,{x_, q_}] := FracD[f, {x, q}] + FracD[g, {x, q}]
+FracD[c_*f_, {x_, q_}] := c*FracD[f,{x, q}]/;FreeQ[c,x]
+
+(* Definitions *)
+FracD[x_^n_., {x_, q_}] := (Gamma[n + 1]/Gamma[n-q + 1])*x^(n-q)
+FracD[c_, {x_, q_}] := c*(Gamma[1]/Gamma[-a + 1])*x^(-q)/;FreeQ[c, x]
