@@ -23,5 +23,16 @@ FracD[f_+g_,{x_, q_}] := FracD[f, {x, q}] + FracD[g, {x, q}]
 FracD[c_*f_, {x_, q_}] := c*FracD[f,{x, q}]/;FreeQ[c,x]
 
 (* Definitions *)
+
+(* x^n terms *)
 FracD[x_^n_., {x_, q_}] := (Gamma[n + 1]/Gamma[n-q + 1])*x^(n-q)
+
+(* Constants *)
 FracD[c_, {x_, q_}] := c*(Gamma[1]/Gamma[-a + 1])*x^(-q)/;FreeQ[c, x]
+
+(* Sin and Cos *)
+(* TODO: This is just a phase shift! *)
+
+(* Exp *)
+(* TODO: Exp[x] is just itself *)
+(* TODO: Exp[ax] is just itself with a^n *)
