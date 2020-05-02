@@ -5,25 +5,27 @@
 
 
 (* ::Text:: *)
-(*This package contains a Fractional Derivative function that extends D to real values.*)
+(*This package contains FracD, an extension of D for Fractional Derivatives*)
 (**)
 (*This file contains naive implementations that more explicitly show these relationships and how they arise naturally from basic definitions.*)
 
 
-(* ::Item:: *)
-(*Operators*)
+BeginPackage[FractionalDerivatives]
 
+FracD::usage = "FracD[f, x] gives the partial derivative \[PartialD]f/\[PartialD]x.\n
+				FracD[f, {x, q}] gives the multiple derivative \!\(\*SuperscriptBox[\(\[PartialD]\), \(q\)]\)f/\[PartialD]\!\(\*SuperscriptBox[\(x\), \(q\)]\)"
 
-(* ::Input::Initialization:: *)
-FracD::usage="FracD[f, x] gives the partial derivative \[PartialD]f/\[PartialD]x.\nFracD[f, {x, q}] gives the multiple derivative \!\(\*SuperscriptBox[\(\[PartialD]\), \(q\)]\)f/\[PartialD]\!\(\*SuperscriptBox[\(x\), \(q\)]\)";
-
-(* Defaults for compatibility with D *)
+(* Default to first order; Increases compatibility with D *)
 FracD[f_, x_] := FracD[f, {x, 1}]
 
-(* For Linearity *)
+(* Support Linearity *)
 FracD[f_+g_,{x_, q_}] := FracD[f, {x, q}] + FracD[g, {x, q}]
 FracD[c_*f_, {x_, q_}] := c*FracD[f,{x, q}]/;FreeQ[c,x]
 
+EndPackage[]
+
+
+(* ::Input::Initialization:: *)
 (* Definitions *)
 
 (* x^n terms *)
