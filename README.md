@@ -10,7 +10,10 @@ This implementation uses the **Riemann–Liouville** version of the formula. Mor
 
 # Use
 
-Import like a normal Mathematica package. The package name is `DifferIntegral\``
+Import like a normal Mathematica package. The package name is 
+```
+DifferIntegral`
+```
 
 # Old
 
